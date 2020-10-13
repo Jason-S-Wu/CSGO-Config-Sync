@@ -5,7 +5,8 @@ Sync config files from multiple accounts (useful for smurfing). It replaces othe
 run `pip3 install -r requirements.txt` for dependencies
 
 # Usage
-Path to userdata is usually at `C:\Program Files (x86)\Steam\userdata`\n
+Path to userdata is usually at `C:\Program Files (x86)\Steam\userdata`
+
 You can also simply drag the userdata folder to `CS:Go Config Sync`
 
 # Standalone Version
