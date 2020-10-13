@@ -1,5 +1,7 @@
 # CSGO-Config-Sync
-Sync config files from multiple accounts (useful for smurfing). It replaces other accounts configs in the `730/cfg` folder from your main account.
+Sync config files from multiple accounts (useful for smurfing).
+
+It replaces other accounts configs in the `730/cfg` folder from your main account.
 
 # Installation
 run `pip3 install -r requirements.txt` for dependencies
