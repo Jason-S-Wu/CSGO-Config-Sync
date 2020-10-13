@@ -105,4 +105,4 @@ confirmReplacement(userpath,mainAccountID, mainAccountName, otherAccounts)
 clearTerminal()
 
 print("Done syncing config files")
-input("Press Anything to QUIT ... ")
+input("Press Enter to QUIT ... ")
