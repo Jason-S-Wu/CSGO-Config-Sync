@@ -10,6 +10,7 @@ run `pip3 install -r requirements.txt` for dependencies
 
 # Usage
 Path to userdata is usually at `C:\Program Files (x86)\Steam\userdata`
+
 To change path edit or delete `userdata_path.exe`
 
 You can also simply drag the userdata folder to `CS:GO Config Sync`
