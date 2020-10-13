@@ -8,7 +8,7 @@ def findUserdata():
         if os.stat("userdata_path.txt").st_size == 0:
             with open("userdata_path.txt", "w") as userdataTXT:
                 userdataPath = input("Path to CS:GO Userdata: ")
-                userdataPath = userdataPath.replace("'", "").strip("&").strip(" ")
+                userdataPath = userdataPath.replace("'", "").replace("\"","").strip("&").strip(" ")
                 listOfUserID = os.listdir(userdataPath)
                 userdataTXT.write(str(userdataPath))
                 return listOfUserID
