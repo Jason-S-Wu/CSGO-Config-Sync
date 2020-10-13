@@ -1,5 +1,5 @@
 # CSGO-Config-Sync
-Sync config files from multiple accounts (useful for smurfing).
+Sync config files and video settings from multiple accounts (useful for smurfing).
 
 It replaces other accounts configs in the `730/cfg` folder from your main account.
 
