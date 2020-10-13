@@ -15,3 +15,6 @@ You can also simply drag the userdata folder to `CS:GO Config Sync`
 
 # Standalone Version
 If you don't want to get `Python` there is a standalone version in [Releases](https://github.com/Jason-S-Wu/CSGO-Config-Sync/releases)
+
+# Warning
+I am not responsible for any lost config files
