@@ -1,8 +1,6 @@
 import os, requests, re, shutil
 from bs4 import BeautifulSoup
 
-clearTerminal = lambda: os.system('cls')
-
 def findUserdata():
     if os.path.exists("userdata_path.txt"):
         if os.stat("userdata_path.txt").st_size == 0:
@@ -24,10 +22,6 @@ def findUserdata():
             userdataTXT.write(userdataPath)
         return listOfUserID
 
-listOfUserID = findUserdata()
-
-print("Loading ... ")
-
 def findAllAccounts(userList):
     usernames = { }
     index = 1
@@ -42,10 +36,6 @@ def findAllAccounts(userList):
             index += 1
     return usernames
 
-usernames = findAllAccounts(listOfUserID)
-
-clearTerminal()
-
 def findMainAccountIndex(usernamesDict):
     for index in usernamesDict:
         for account in usernamesDict[index]:
@@ -53,20 +43,13 @@ def findMainAccountIndex(usernamesDict):
     mainAccountIndex = int(input("\nSelect your main account: "))
     return mainAccountIndex
 
-mainAccountIndex = findMainAccountIndex(usernames)
-
-
 def findMainAccountID(usernamesDict, mainAccountIndex):
     mainAccountID = list(usernamesDict[mainAccountIndex].values())[0]
     return mainAccountID
 
-mainAccountID = findMainAccountID(usernames, mainAccountIndex)
-
 def findMainAccountName(usernamesDict, mainAccountIndex):
     mainAccountName = list(usernamesDict[mainAccountIndex].keys())[0]
     return mainAccountName
-
-mainAccountName = findMainAccountName(usernames, mainAccountIndex)
 
 def findUserPath():
     with open("userdata_path.txt") as userdataTXT:
@@ -82,10 +65,6 @@ def findOtherAccounts(usernames, mainAccountID):
                 otherAccountsID.append(otherAccounts)
     return otherAccountsID
 
-otherAccounts = findOtherAccounts(usernames, mainAccountID)
-
-clearTerminal()
-
 def confirmReplacement(userdataPath, mainAccountID, mainAccountName, otherAccounts):
     mainDir = f'{userdataPath}\\{mainAccountID}\\730\\local\\cfg'
     confirm = input(f'Are you sure you want to sync config files for \'{mainAccountName}\'? Type \"YES\" to confirm: ')
@@ -98,11 +77,22 @@ def confirmReplacement(userdataPath, mainAccountID, mainAccountName, otherAccoun
             shutil.copytree(mainDir, f'{userdataPath}\\{otherAccount}\\730\\local\\cfg')
     return
 
-userpath = findUserPath()
+def main():
+    clearTerminal = lambda: os.system('cls')
+    listOfUserID = findUserdata()
+    print("Loading ... ")
+    usernames = findAllAccounts(listOfUserID)
+    clearTerminal()
+    mainAccountIndex = findMainAccountIndex(usernames)
+    mainAccountID = findMainAccountID(usernames, mainAccountIndex)
+    mainAccountName = findMainAccountName(usernames, mainAccountIndex)
+    otherAccounts = findOtherAccounts(usernames, mainAccountID)
+    clearTerminal()
+    userpath = findUserPath()
+    confirmReplacement(userpath,mainAccountID, mainAccountName, otherAccounts)
+    clearTerminal()
+    print("Done syncing config files")
+    input("Press Enter to QUIT ... ")
 
-confirmReplacement(userpath,mainAccountID, mainAccountName, otherAccounts)
-
-clearTerminal()
-
-print("Done syncing config files")
-input("Press Enter to QUIT ... ")
+if __name__ == '__main__':
+    main()
