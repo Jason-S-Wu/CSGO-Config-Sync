@@ -31,7 +31,7 @@ def findAllAccounts(userList):
             userDataParse = BeautifulSoup(userData, 'html.parser')
             userNameData = userDataParse.find("div", attrs={'class':'panel-body'}).text
             userNameArr = userNameData.split("\n")
-            steamUserName = str(userNameArr[9]).replace("name ", "")
+            steamUserName = str(userNameArr[10]).replace("name ", "")
             usernames[index] = {steamUserName:userID}
             index += 1
     return usernames
